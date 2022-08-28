@@ -1,1 +1,36 @@
+.App{
+    font-family: 'Montserrat', sans-serif;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar--name{
+    font-weight: 700;
+    margin: 14px 0px 14px 0px;
+}
+.navbar--role{
+    font-size: 14px;
+    line-height: 0.1rem;
+    letter-spacing: 0.1em;
+    margin: 0px 0px 0.7rem 0px;
+}
+
+.navbar--linkContainer{
+    display: flex;
+}
+
+.navbar--link{
+    margin: 20px;
+}
+
+.navbar--nameContainer{
+    margin-left: 5vw;
+}
+
+.hero--container{
+    height: 80vh;
+    background-color: #E5E5E5;
+}
 
