@@ -10,6 +10,7 @@ export default function Projects() {
         {ProjectData.map((project) => {
           return (
             <ProjectCard
+              key={project.key}
               imageUrl={project.imageUrl}
               name={project.name}
               description={project.description}

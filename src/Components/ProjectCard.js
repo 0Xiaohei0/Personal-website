@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function ProjectCard(props) {
-  console.log(props.imageUrl);
+  //console.log(props.imageUrl);
   return (
     <div className="projectCard--container">
       <img
