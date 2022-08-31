@@ -10,7 +10,7 @@ var engine = Engine.create();
 
 // create a renderer
 var render = Render.create({
-  element: document.body,
+  element: document.getElementById("canvas"),
   engine: engine,
 });
 
