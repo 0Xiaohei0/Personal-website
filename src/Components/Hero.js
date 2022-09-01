@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import {
+  use,
   Engine,
   Render,
   Runner,
@@ -11,6 +12,11 @@ import {
   Composites,
   Common,
 } from "matter-js";
+
+// install plugin
+use(
+  "matter-wrap" // PLUGIN_NAME
+);
 
 export default function Hero() {
   const scene = useRef();
@@ -29,7 +35,7 @@ export default function Hero() {
       },
     });
     var width = scene.current.offsetWidth;
-    var height = scene.current.offsetWidth;
+    var height = scene.current.offsetHeight;
     render.canvas.width = width;
     render.canvas.height = height;
 
@@ -53,8 +59,8 @@ export default function Hero() {
     // wrapping using matter-wrap plugin
     for (var i = 0; i < stack.bodies.length; i += 1) {
       stack.bodies[i].plugin.wrap = {
-        min: { x: render.bounds.min.x, y: render.bounds.min.y },
-        max: { x: render.bounds.max.x, y: render.bounds.max.y },
+        min: { x: 0, y: 0 },
+        max: { x: render.canvas.width, y: render.canvas.height },
       };
     }
 
