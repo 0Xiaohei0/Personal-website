@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import {
-  use,
   Engine,
   Render,
   Runner,
@@ -12,11 +11,6 @@ import {
   Composites,
   Common,
 } from "matter-js";
-
-// install plugin
-use(
-  "matter-wrap" // PLUGIN_NAME
-);
 
 export default function Hero() {
   const scene = useRef();
@@ -41,16 +35,9 @@ export default function Hero() {
     render.canvas.width = width;
     render.canvas.height = height;
 
-    /*// add bodies
-    var ground = Bodies.rectangle(width / 2, 700, 500, 10, {
-      isStatic: true,
-      restitution: 0.5,
-    });
-    Composite.add(world, [ground]);*/
-
     const rowCount = 10;
     const colCount = 10;
-    const rowGap = 30;
+    const rowGap = 25;
     const colGap = 30;
     const radius = 10;
 
@@ -59,7 +46,7 @@ export default function Hero() {
 
     for (let row = 0; row < rowCount; row++) {
       let rowx = width / 2 - rodsWidth / 2;
-      if (row % 2 === 0) rowx += radius * 2 + colGap / 2;
+      if (row % 2 === 0) rowx += radius + colGap / 2;
       var rods = Composites.stack(
         rowx,
         height / 2 - rodsHeight / 2 + row * (rowGap + radius * 2),
@@ -70,63 +57,29 @@ export default function Hero() {
         function (x, y) {
           return Bodies.circle(x, y, radius, {
             isStatic: true,
-            friction: 0.00001,
+            friction: 0,
             restitution: 0.5,
-            density: 0.001,
+            density: 0.01,
           });
         }
       );
       Composite.add(world, [rods]);
     }
-    /*var rods = Composites.stack(
-      width / 2 - rodsWidth / 2,
-      height / 2 - rodsHeight / 2,
-      colCount,
-      rowCount,
-      colGap,
-      rowGap,
-      function (x, y) {
-        return Bodies.circle(x, y, radius, {
-          isStatic: true,
-          friction: 0.00001,
-          restitution: 0.5,
-          density: 0.001,
-        });
-      }
-    );
-
-    Composite.add(world, [rods]);*/
-
-    /*// ball spawn
-    var stack = Composites.stack(width / 2, 20, 20, 5, 0, 0, function (x, y) {
-      return Bodies.circle(x, y, Common.random(10, 20), {
-        friction: 0.00001,
-        restitution: 0.5,
-        density: 0.001,
-      });
-    });
-    Composite.add(world, stack);*/
 
     function makeCircle() {
       let randx = Common.random(
         width / 2 - rodsWidth / 2,
         width / 2 + rodsWidth / 2
       );
-      let circle = Bodies.circle(randx, 0, 10, {
+      let circle = Bodies.circle(randx, -20, 10, {
         friction: 0.00001,
         restitution: 0.5,
         density: 0.001,
       });
       Composite.add(world, [circle]);
+      setTimeout(Composite.remove, 10000, world, circle);
     }
-    setInterval(makeCircle, 300);
-    /*// wrapping using matter-wrap plugin
-    for (var i = 0; i < stack.bodies.length; i += 1) {
-      stack.bodies[i].plugin.wrap = {
-        min: { x: 0, y: 0 },
-        max: { x: render.canvas.width, y: render.canvas.height },
-      };
-    }*/
+    setInterval(makeCircle, 200);
 
     // add mouse control
     var mouse = Mouse.create(render.canvas),
@@ -135,11 +88,23 @@ export default function Hero() {
         constraint: {
           stiffness: 0.2,
           render: {
-            visible: false,
+            visible: true,
           },
         },
       });
+    mouse.pixelRatio = 1;
     Composite.add(world, mouseConstraint);
+    console.log(mouseConstraint);
+
+    mouseConstraint.mouse.element.removeEventListener(
+      "mousewheel",
+      mouseConstraint.mouse.mousewheel
+    );
+    mouseConstraint.mouse.element.removeEventListener(
+      "DOMMouseScroll",
+      mouseConstraint.mouse.mousewheel
+    );
+
     // keep the mouse in sync with rendering
     render.mouse = mouse;
 
