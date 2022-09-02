@@ -26,6 +26,7 @@ section {
 }
 
 .navbar--link {
+  all: unset;
   margin: 20px;
 }
 
@@ -65,6 +66,7 @@ section {
 }
 
 .hero--viewProjects {
+  all: unset;
   font-weight: 700;
   font-size: 20px;
 }

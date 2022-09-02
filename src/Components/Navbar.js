@@ -8,11 +8,11 @@ export default function Navbar() {
         <p className="navbar--role">Web and game developer</p>
       </div>
       <div className="navbar--linkContainer">
-        <p className="navbar--link">About</p>
-        <p className="navbar--link">Skills</p>
-        <p className="navbar--link">Experience</p>
-        <p className="navbar--link">Projects</p>
-        <p className="navbar--link">Contact</p>
+        <button className="navbar--link">About</button>
+        <button className="navbar--link">Skills</button>
+        <button className="navbar--link">Experience</button>
+        <button className="navbar--link">Projects</button>
+        <button className="navbar--link">Contact</button>
       </div>
     </nav>
   );

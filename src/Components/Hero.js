@@ -88,13 +88,13 @@ export default function Hero() {
         constraint: {
           stiffness: 0.2,
           render: {
-            visible: true,
+            visible: false,
           },
         },
       });
     mouse.pixelRatio = 1;
     Composite.add(world, mouseConstraint);
-    console.log(mouseConstraint);
+    //console.log(mouseConstraint);
 
     mouseConstraint.mouse.element.removeEventListener(
       "mousewheel",
@@ -138,7 +138,7 @@ export default function Hero() {
           dolor sit amet, consectetur adipiscing elit. Nulla convallis libero ac
           est rhoncus, a condimentum.
         </p>
-        <p className="hero--viewProjects">View Projects</p>
+        <button className="hero--viewProjects">View Projects</button>
       </div>
       <div ref={scene} style={{ width: "100%", height: "100%" }} />
     </div>
