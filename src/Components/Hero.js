@@ -26,12 +26,14 @@ export default function Hero() {
     var engineCurrent = engine.current;
     var world = engine.current.world;
 
+    engineCurrent.gravity.scale = 0.0001;
+
     const render = Render.create({
       element: scene.current,
       engine: engine.current,
       options: {
         wireframes: false,
-        background: "#fafafa",
+        background: "#e5e5e5",
       },
     });
     var width = scene.current.offsetWidth;
@@ -39,30 +41,92 @@ export default function Hero() {
     render.canvas.width = width;
     render.canvas.height = height;
 
-    // add bodies
-    var boxA = Bodies.rectangle(350, 50, 10, 10);
-    var boxB = Bodies.rectangle(350, 50, 80, 80);
-    var ground = Bodies.rectangle(300, 700, 500, 10, { isStatic: true });
+    /*// add bodies
+    var ground = Bodies.rectangle(width / 2, 700, 500, 10, {
+      isStatic: true,
+      restitution: 0.5,
+    });
+    Composite.add(world, [ground]);*/
 
-    Composite.add(world, [boxA, boxB, ground]);
+    const rowCount = 10;
+    const colCount = 10;
+    const rowGap = 30;
+    const colGap = 30;
+    const radius = 10;
 
-    // ball spawn
-    var stack = Composites.stack(20, 20, 20, 5, 0, 0, function (x, y) {
+    const rodsWidth = (radius * 2 + colGap) * colCount - colGap;
+    const rodsHeight = (radius * 2 + rowGap) * rowCount - rowGap;
+
+    for (let row = 0; row < rowCount; row++) {
+      let rowx = width / 2 - rodsWidth / 2;
+      if (row % 2 === 0) rowx += radius * 2 + colGap / 2;
+      var rods = Composites.stack(
+        rowx,
+        height / 2 - rodsHeight / 2 + row * (rowGap + radius * 2),
+        colCount,
+        1,
+        colGap,
+        0,
+        function (x, y) {
+          return Bodies.circle(x, y, radius, {
+            isStatic: true,
+            friction: 0.00001,
+            restitution: 0.5,
+            density: 0.001,
+          });
+        }
+      );
+      Composite.add(world, [rods]);
+    }
+    /*var rods = Composites.stack(
+      width / 2 - rodsWidth / 2,
+      height / 2 - rodsHeight / 2,
+      colCount,
+      rowCount,
+      colGap,
+      rowGap,
+      function (x, y) {
+        return Bodies.circle(x, y, radius, {
+          isStatic: true,
+          friction: 0.00001,
+          restitution: 0.5,
+          density: 0.001,
+        });
+      }
+    );
+
+    Composite.add(world, [rods]);*/
+
+    /*// ball spawn
+    var stack = Composites.stack(width / 2, 20, 20, 5, 0, 0, function (x, y) {
       return Bodies.circle(x, y, Common.random(10, 20), {
         friction: 0.00001,
         restitution: 0.5,
         density: 0.001,
       });
     });
-    Composite.add(world, stack);
+    Composite.add(world, stack);*/
 
-    // wrapping using matter-wrap plugin
+    function makeCircle() {
+      let randx = Common.random(
+        width / 2 - rodsWidth / 2,
+        width / 2 + rodsWidth / 2
+      );
+      let circle = Bodies.circle(randx, 0, 10, {
+        friction: 0.00001,
+        restitution: 0.5,
+        density: 0.001,
+      });
+      Composite.add(world, [circle]);
+    }
+    setInterval(makeCircle, 300);
+    /*// wrapping using matter-wrap plugin
     for (var i = 0; i < stack.bodies.length; i += 1) {
       stack.bodies[i].plugin.wrap = {
         min: { x: 0, y: 0 },
         max: { x: render.canvas.width, y: render.canvas.height },
       };
-    }
+    }*/
 
     // add mouse control
     var mouse = Mouse.create(render.canvas),
