@@ -1,9 +1,8 @@
 import React from "react";
 
 export default function ProjectCard(props) {
-  //console.log(props.imageUrl);
   return (
-    <div className="projectCard--container">
+    <a href={props.projectUrl} className="projectCard--container">
       <img
         alt="project cover"
         className="projectCard--image"
@@ -13,6 +12,6 @@ export default function ProjectCard(props) {
         <p className="projectCard--name">{props.name}</p>
         <p className="projectCard--description">{props.description}</p>
       </div>
-    </div>
+    </a>
   );
 }
