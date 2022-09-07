@@ -34,6 +34,7 @@ export default function Hero() {
     var height = scene.current.offsetHeight;
     render.canvas.width = width;
     render.canvas.height = height;
+    Render.setPixelRatio(render, "auto");
 
     const rowCount = 10;
     const colCount = 10;
