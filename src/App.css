@@ -36,6 +36,7 @@ section {
 
 .hero--container {
   height: 50rem;
+  width: 100vw;
   background-color: #e5e5e5;
   display: flex;
   align-items: center;
@@ -121,4 +122,18 @@ section {
   display: flex;
   flex-direction: column;
   align-items: left;
+}
+
+@media only screen and (max-width: 1343px) {
+  .hero--container {
+    flex-direction: column;
+    height: 40rem;
+  }
+  .hero--textContainer {
+    margin: 5rem 0 0 0;
+  }
+  .hero--ballAnimation {
+    height: 200px;
+    justify-content: center;
+  }
 }

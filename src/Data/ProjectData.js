@@ -10,7 +10,7 @@ const ProjectData = [
     imageUrl: FIS2Cover,
     name: "Fortress in the sky 2",
     description: `• A 3d platformer game with self made 3D assets, built with the Unity game engine.`,
-    projectUrl: "https://github.com/0Xiaohei0/ConnectedWorlds",
+    projectUrl: "https://daydreamstudio.itch.io/fortress-in-the-sky-2",
   },
   {
     key: 1,

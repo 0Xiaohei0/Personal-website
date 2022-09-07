@@ -140,7 +140,7 @@ export default function Hero() {
         </p>
         <button className="hero--viewProjects">View Projects</button>
       </div>
-      <div ref={scene} style={{ width: "100%", height: "100%" }} />
+      <div className="hero--ballAnimation" ref={scene} />
     </div>
   );
 }
