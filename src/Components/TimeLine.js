@@ -3,7 +3,7 @@ import TimeLineItem from "./TimeLineItem";
 import TimeLineData from "../Data/TimeLineData";
 export default function TimeLine() {
   return (
-    <div>
+    <section>
       <h1 className="Timeline--title">Experiences</h1>
       <div class="container">
         <div class="timeline">
@@ -22,6 +22,6 @@ export default function TimeLine() {
           </ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

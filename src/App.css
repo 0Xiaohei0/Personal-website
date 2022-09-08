@@ -1,13 +1,20 @@
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 .App {
   font-family: "Montserrat", sans-serif;
 }
 .navbar {
+  position: fixed;
+  width: 100vw;
   display: flex;
   justify-content: space-between;
+  background-color: white;
 }
 
 section {
-  margin: 0 5rem 5rem 5rem;
+  margin: 0 5vw 0 5vw;
 }
 
 .navbar--name {
@@ -23,10 +30,10 @@ section {
 
 .navbar--linkContainer {
   display: flex;
+  padding-right: 20px;
 }
 
 .navbar--link {
-  all: unset;
   margin: 20px;
 }
 
@@ -129,21 +136,29 @@ section {
     height: 40rem;
   }
   .hero--textContainer {
-    margin: 5rem 0 0 0;
+    margin: 5rem 1rem 0 1rem;
   }
   .hero--ballAnimation {
     height: 200px;
+    width: 100vw;
     justify-content: center;
   }
   .projects--container {
     grid-template-columns: 1fr;
+  }
+  .projectCard--container {
+    width: 80vw;
+    height: auto;
+    margin: 0 1rem 0 1rem;
+  }
+  .navbar--linkContainer {
+    display: none;
   }
 }
 
 .Timeline--title {
   font-weight: 400;
   font-size: 48px;
-  margin-left: 5rem;
 }
 
 .container {
@@ -151,7 +166,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 100px 0;
+
   background-color: #ffffff;
 }
 .timeline {
@@ -164,12 +179,6 @@ section {
 
 .timeline ul {
   list-style: none;
-}
-
-.timeline--image {
-  height: 50%;
-  width: 100%;
-  object-fit: cover;
 }
 
 .timeline ul li {
@@ -202,14 +211,17 @@ section {
   margin-bottom: 10px;
   letter-spacing: 2px;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1343px) {
+  .container {
+    padding: 0;
+  }
   .timeline:before {
     content: "";
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 2px;
+    width: 3px;
     height: 100%;
     background-color: gray;
   }
@@ -224,11 +236,23 @@ section {
     transform: translateX(-51px);
     border-radius: 20px 0px 20px 20px;
   }
+  .timeline ul li:nth-child(odd) .timeline--image {
+    height: 50%;
+    width: 100%;
+    object-fit: fill;
+    border-radius: 20px 0 0 0;
+  }
   .timeline ul li:nth-child(even) {
     float: right;
     clear: left;
     transform: translateX(11px);
     border-radius: 0px 20px 20px 20px;
+  }
+  .timeline ul li:nth-child(even) .timeline--image {
+    height: 50%;
+    width: 100%;
+    object-fit: fill;
+    border-radius: 0 20px 0 0;
   }
   .timeline ul li::before {
     content: "";
