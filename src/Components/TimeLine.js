@@ -5,8 +5,8 @@ export default function TimeLine() {
   return (
     <section id="Experience">
       <h1 className="Timeline--title">Experience</h1>
-      <div class="container">
-        <div class="timeline">
+      <div className="container">
+        <div className="timeline">
           <ul>
             {TimeLineData.map((project) => {
               return (

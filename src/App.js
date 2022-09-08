@@ -4,6 +4,7 @@ import Hero from "./Components/Hero";
 import Projects from "./Components/Projects";
 import TimeLine from "./Components/TimeLine";
 import Skills from "./Components/Skills";
+import Contact from "./Components/Contact";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Projects />
       <TimeLine />
       <Skills />
+      <Contact />
     </div>
   );
 }
