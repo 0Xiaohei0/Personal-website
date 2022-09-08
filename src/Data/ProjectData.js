@@ -24,14 +24,14 @@ const ProjectData = [
     imageUrl: BIQCover,
     name: "Biquadris",
     description: `• Local multiplayer tetris game build with c++ in a three person team.`,
-    projectUrl: "https://github.com/0Xiaohei0/ConnectedWorlds",
+    projectUrl: "https://youtu.be/dl42gOP2MO0",
   },
   {
     key: 2,
     imageUrl: EventCover,
     name: "Event link",
     description: `• A web application that allows its users to post and attend events.`,
-    projectUrl: "https://github.com/0Xiaohei0/ConnectedWorlds",
+    projectUrl: "https://devpost.com/software/eventlink?",
   },
   {
     key: 3,
@@ -73,7 +73,7 @@ const ProjectData = [
     imageUrl: Weather,
     name: "Weather forecast",
     description: `• A Vue webapp that fetches weather data from external API.`,
-    projectUrl: "https://github.com/0Xiaohei0/Weather-forecast",
+    projectUrl: "https://0xiaohei0.github.io/Weather-forecast/",
   },
   {
     key: 9,
