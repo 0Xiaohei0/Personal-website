@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-scroll";
 
 export default function Navbar() {
   return (
@@ -8,13 +9,53 @@ export default function Navbar() {
         <p className="navbar--role">Web and game developer</p>
       </div>
       <div className="navbar--linkContainer">
-        <a className="navbar--link">About</a>
-        <a className="navbar--link">Skills</a>
-        <a className="navbar--link">Experience</a>
-        <a href="#Projects" className="navbar--link">
+        <Link
+          className="navbar--link"
+          to="About"
+          spy={true}
+          smooth={true}
+          duration={500}
+        >
+          About
+        </Link>
+        <Link
+          className="navbar--link"
+          to="Skills"
+          spy={true}
+          smooth={true}
+          duration={500}
+        >
+          Skills
+        </Link>
+        <Link
+          className="navbar--link"
+          to="Experience"
+          spy={true}
+          smooth={true}
+          offset={-90}
+          duration={500}
+        >
+          Experience
+        </Link>
+        <Link
+          className="navbar--link"
+          to="Projects"
+          spy={true}
+          smooth={true}
+          offset={-90}
+          duration={500}
+        >
           Projects
-        </a>
-        <a className="navbar--link">Contact</a>
+        </Link>
+        <Link
+          className="navbar--link"
+          to="Contact"
+          spy={true}
+          smooth={true}
+          duration={500}
+        >
+          Contact
+        </Link>
       </div>
     </nav>
   );

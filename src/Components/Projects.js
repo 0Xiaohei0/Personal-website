@@ -4,7 +4,7 @@ import ProjectData from "../Data/ProjectData";
 
 export default function Projects() {
   return (
-    <section>
+    <section id="Projects">
       <h1 className="projects--title">Projects</h1>
       <div className="projects--container">
         {ProjectData.map((project) => {

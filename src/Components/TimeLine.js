@@ -3,8 +3,8 @@ import TimeLineItem from "./TimeLineItem";
 import TimeLineData from "../Data/TimeLineData";
 export default function TimeLine() {
   return (
-    <section>
-      <h1 className="Timeline--title">Experiences</h1>
+    <section id="Experience">
+      <h1 className="Timeline--title">Experience</h1>
       <div class="container">
         <div class="timeline">
           <ul>

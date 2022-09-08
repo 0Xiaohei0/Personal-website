@@ -35,6 +35,7 @@ section {
 
 .navbar--link {
   margin: 20px;
+  cursor: pointer;
 }
 
 .navbar--nameContainer {
@@ -77,6 +78,7 @@ section {
   all: unset;
   font-weight: 700;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .projects--title {
