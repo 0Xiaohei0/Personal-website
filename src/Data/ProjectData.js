@@ -3,6 +3,13 @@ import BIQCover from "../images/biq.png";
 import EventCover from "../images/Event.png";
 import FIS1Cover from "../images/FIS1.jpg";
 import TimeCover from "../images/Time.png";
+import GS from "../images/Project/GS.png";
+import Sorting from "../images/Project/Sorting.jpg";
+import TimeKeeper from "../images/Project/TimeKeeper.png";
+import Weather from "../images/Project/Weather.png";
+import MC from "../images/Project/MC.png";
+import CA from "../images/Project/CA.png";
+import LH from "../images/Project/LH.png";
 
 const ProjectData = [
   {
@@ -38,7 +45,56 @@ const ProjectData = [
     imageUrl: TimeCover,
     name: "Timelapse generator",
     description: `• Python automation script for converting video files into timelapse.`,
-    projectUrl: "https://github.com/0Xiaohei0/ConnectedWorlds",
+    projectUrl: "https://github.com/0Xiaohei0/Timelapse_Generator",
+  },
+  {
+    key: 5,
+    imageUrl: GS,
+    name: "Gravity skimmer (Hack the north 2020++)",
+    description: `• A gravity field runner game built using C++ and Ubisoft HackerNest API.`,
+    projectUrl: "https://devpost.com/software/gravity-skimmer",
+  },
+  {
+    key: 6,
+    imageUrl: Sorting,
+    name: "Sorting Visualizer",
+    description: `• A sorting visualizer built with html, CSS and JavaScript.`,
+    projectUrl: "https://github.com/0Xiaohei0/sorting-visualiser",
+  },
+  {
+    key: 7,
+    imageUrl: TimeKeeper,
+    name: "Timekeeper",
+    description: `• An android timer app built using Kotlin to track your practice time and stores the data using SQLite.`,
+    projectUrl: "https://github.com/0Xiaohei0/TimeKeeper2",
+  },
+  {
+    key: 8,
+    imageUrl: Weather,
+    name: "Weather forecast",
+    description: `• A Vue webapp that fetches weather data from external API.`,
+    projectUrl: "https://github.com/0Xiaohei0/Weather-forecast",
+  },
+  {
+    key: 9,
+    imageUrl: MC,
+    name: "Vanilla item ores",
+    description: `• A Minecraft mod built using fabric and Java.`,
+    projectUrl: "https://github.com/0Xiaohei0/moreores",
+  },
+  {
+    key: 9,
+    imageUrl: CA,
+    name: "Constant Asetroids",
+    description: `• A planetary defence game built with Unity`,
+    projectUrl: "https://daydreamstudio.itch.io/constant-asteroid",
+  },
+  {
+    key: 9,
+    imageUrl: LH,
+    name: "Land of Hexagods",
+    description: `• Provided art assets for a multiplayer sandbox game`,
+    projectUrl: "https://lavalamp202.itch.io/hexagod",
   },
 ];
 
